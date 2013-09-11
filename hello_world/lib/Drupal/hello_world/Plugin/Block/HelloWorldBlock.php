@@ -28,7 +28,7 @@ class HelloWorldBlock extends BlockBase {
   public function build() {
     $this->configuration['label'] = t('Hello World Block');
     return array(
-      '#children' => t('Here is the content'),
+      '#children' => t('Hello from a custom block'),
     );
   }
 }
