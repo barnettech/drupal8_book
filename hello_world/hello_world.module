@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * A basic Drupal 8 Hello World Module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function hello_world_menu() {
+ 
+  $items['hello/world'] = array(
+    'title' => 'Hello World',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'access arguments' => array('access content'),
+  );
+}
+
+/**
+ * Implements hook_permission().
+ */
+/*function hello_world_permission() {
+  $permissions = array(
+    'administer hello world' => array(
+      'title' => t('Administer Hello World module'),
+      'description' => t('Change the settings for Hello World module.'),
+    ),
+  );
+ return $permissions;
+}*/
