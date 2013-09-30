@@ -1,5 +1,5 @@
 hello_world_settings:
-  pattern:  '/hello/world'
+  path:  '/hello/world'
   defaults:
     _content:  '\Drupal\hello_world\Controller\HelloWorldController::myCallbackMethod'
   requirements:

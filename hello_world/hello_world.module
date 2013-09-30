@@ -20,7 +20,7 @@ function hello_world_menu() {
 /**
  * Implements hook_permission().
  */
-/*function hello_world_permission() {
+function hello_world_permission() {
   $permissions = array(
     'administer hello world' => array(
       'title' => t('Administer Hello World module'),
@@ -28,4 +28,4 @@ function hello_world_menu() {
     ),
   );
  return $permissions;
-}*/
+}
