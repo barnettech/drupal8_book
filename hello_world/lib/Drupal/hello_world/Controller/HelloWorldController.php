@@ -15,6 +15,10 @@ class HelloWorldController extends ContainerAware {
    */
   public function myCallbackMethod() {
     drupal_add_css(drupal_get_path('module', 'hello_world') . '/css/hello_world.css');
+    drupal_add_library('system', 'ui.draggable');
+    drupal_add_js(drupal_get_path('module', 'hello_world') . '/js/hello_world.js', array(
+        'scope' => 'footer'));
+    
     $content = '
     <div class="myDiv">
       <div class="bg"></div>
