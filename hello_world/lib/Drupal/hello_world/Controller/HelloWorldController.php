@@ -45,7 +45,19 @@ class HelloWorldController extends ContainerAware {
         Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus sed neque ante, venenatis
         sagittis dui. Cras lorem ipsum, scelerisque tempor aliquet quis, imperdiet in augue. Curabitur tellus est, ultrices eu sagittis
         et, pellentesque id enim. Nunc lobortis mattis viverra. Sed non purus ipsum. Aenean ac justo sed urna eleifend consequat.
-    </div>';
-    return $content;  
+        </div>';
+   $content .= '<p><h1>HELLO WORLD!!!!! </h1></p>';
+   $x = 1;
+   // Declare a new object called $my_object and per https://drupal.org/node/1817878 you need to reset to the global namespace
+   // by prefacing stdClass() with \stdClass()
+   $my_object = new \stdClass();
+   $my_object->first_name = 'Jimbo';
+   $my_object->last_name = 'Bob';
+   $content .= 'Hello ' . $my_object->first_name . ' ' . $my_object->last_name . '</br>';
+   foreach($my_object as $property) {
+     $content .= 'property ' . $x . ' in the object is : '. $property . '</br>';
+     $x = $x + 1;
+   }
+   return $content;  
   }
 }
