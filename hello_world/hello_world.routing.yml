@@ -4,3 +4,9 @@ hello_world_settings:
     _content:  '\Drupal\hello_world\Controller\HelloWorldController::myCallbackMethod'
   requirements:
     _permission: 'access content'
+first.form:
+  path:  '/first/form'
+  defaults:
+    _form: '\Drupal\hello_world\Form\FirstForm'
+  requirements:
+    _permission: 'access content'
