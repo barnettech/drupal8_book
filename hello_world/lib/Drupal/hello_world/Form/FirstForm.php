@@ -26,6 +26,7 @@ class FirstForm implements FormInterface {
    */
   public function buildForm(array $form, array &$form_state) {
     // Use the Form API to define form elements.
+    drupal_set_title('First Form');
     $form['user_search'] = array(
     '#type' => 'textfield',
     '#title' => '',
