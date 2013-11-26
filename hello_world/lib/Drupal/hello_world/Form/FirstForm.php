@@ -29,7 +29,7 @@ class FirstForm implements FormInterface {
     $form['user_search'] = array(
     '#type' => 'textfield',
     '#title' => '',
-    '#autocomplete_path' => 'user/autocomplete',
+    '#autocomplete_route_name' => 'user.autocomplete',
     '#size' => 40,
     '#maxlength' => 60,
     );
