@@ -46,6 +46,14 @@ class FirstForm implements FormInterface {
    */
   public function validateForm(array &$form, array &$form_state) {
     // Validate the form values.
+    drupal_set_message('<pre>' . print_r($form_state['values'], TRUE) . '</pre>');
+    if (preg_match('#[\d]#', $form_state['values']['user_search'])) {
+      form_set_error('user_search', 'You need to submit a name, a name does not contain numbers');
+      return FALSE;
+    }
+    else {
+      return TRUE;
+    }
   }
  
   /**
@@ -53,6 +61,7 @@ class FirstForm implements FormInterface {
    */
   public function submitForm(array &$form, array &$form_state) {
     // Do something useful.
+    drupal_set_message('Your form was submitted successfully, you typed in the name ' . $form_state['values']['user_search']);
   }
  
 }
