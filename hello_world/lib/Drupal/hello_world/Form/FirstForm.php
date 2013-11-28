@@ -72,6 +72,8 @@ class FirstForm implements FormInterface {
    */
   public function submitForm(array &$form, array &$form_state) {
     // Do something useful.
+    drupal_set_message('Your form was submitted successfully, you typed in the title ' . $form_state['values']['title']);
+    drupal_set_message('Your form was submitted successfully, you typed in the body ' . $form_state['values']['body']);
     drupal_set_message('Your form was submitted successfully, you typed in the name ' . $form_state['values']['author']);
   }
  
