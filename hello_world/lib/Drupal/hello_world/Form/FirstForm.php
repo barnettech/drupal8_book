@@ -27,17 +27,27 @@ class FirstForm implements FormInterface {
    */
   public function buildForm(array $form, array &$form_state) {
     // Use the Form API to define form elements.
-    drupal_set_title('First Form');
-    $form['user_search'] = array(
+    drupal_set_title('Programmatically create a node with our own form');
+    $form['title'] = array(
+      '#title' => t('Title'),
+      '#type' => 'textfield',
+      '#maxlength' => 120,
+    );
+    $form['body'] = array(
+      '#title' => t('Body'),
+      '#type' => 'textarea',
+    );
+    $form['author'] = array(
     '#type' => 'textfield',
-    '#title' => '',
+    '#title' => t('Author'),
+    '#description' => t('Choose who the node should appear written by'),
     '#autocomplete_route_name' => 'user.autocomplete',
     '#size' => 40,
     '#maxlength' => 60,
     );
     $form['submit'] = array(
       '#type' => 'submit',
-      '#value' => t('Search'),
+      '#value' => t('Submit'),
     );
     return $form;
   }
@@ -48,8 +58,8 @@ class FirstForm implements FormInterface {
   public function validateForm(array &$form, array &$form_state) {
     // Validate the form values.
     drupal_set_message('<pre>' . print_r($form_state['values'], TRUE) . '</pre>');
-    if (preg_match('#[\d]#', $form_state['values']['user_search'])) {
-      form_set_error('user_search', 'You need to submit a name, a name does not contain numbers');
+    if (preg_match('#[\d]#', $form_state['values']['author'])) {
+      form_set_error('author', 'You need to submit a name, a name does not contain numbers');
       return FALSE;
     }
     else {
@@ -62,7 +72,7 @@ class FirstForm implements FormInterface {
    */
   public function submitForm(array &$form, array &$form_state) {
     // Do something useful.
-    drupal_set_message('Your form was submitted successfully, you typed in the name ' . $form_state['values']['user_search']);
+    drupal_set_message('Your form was submitted successfully, you typed in the name ' . $form_state['values']['author']);
   }
  
 }
