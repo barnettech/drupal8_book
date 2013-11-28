@@ -27,7 +27,7 @@ class HelloWorldBlock3 extends BlockBase {
    * Implements \Drupal\block\BlockBase::blockBuild().
    */
   public function build() {
-    $this->configuration['label'] = t('Autocomplete Form Example');
+    $this->configuration['label'] = t('Create a Node Programmatically from within a Block');
     $theForm = drupal_get_form(new FirstForm());
     return array(
       '#children' => drupal_render($theForm),
