@@ -93,5 +93,6 @@ class FirstForm implements FormInterface {
       'uid' => $uid,
     ));
     $node->save();
+    drupal_set_message('Your new node has been created and can be viewed by clicking the following url ' . l('Click here to view your node', 'node/' . $node->id()));
   }
 }
