@@ -6,9 +6,15 @@
  */
  
 namespace Drupal\hello_world\Form;
- 
+
 use Drupal\Core\Form\FormInterface;
 use Drupal\Core\Form\FormBuilder;
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\entity\Entity\EntityDisplay;
+use Drupal\node\NodeInterface;
+use Drupal\rest\Tests\RESTTestBase;
+
  
 /**
  * Provides a simple example form.
@@ -75,6 +81,17 @@ class FirstForm implements FormInterface {
     drupal_set_message('Your form was submitted successfully, you typed in the title ' . $form_state['values']['title']);
     drupal_set_message('Your form was submitted successfully, you typed in the body ' . $form_state['values']['body']);
     drupal_set_message('Your form was submitted successfully, you typed in the name ' . $form_state['values']['author']);
+    $uid = db_query('SELECT uid from users where name = :name', array('name' => $form_state['values']['author']))->fetchField();
+    drupal_set_message('the users uid is ' . $uid);
+    $node = entity_create('node', array(
+      'type' => 'article',
+      'title' => $form_state['values']['title'],
+      'body' => array(
+        'value' => $form_state['values']['body'],
+        'format' => 'basic_html',
+      ),
+      'uid' => $uid,
+    ));
+    $node->save();
   }
- 
 }
