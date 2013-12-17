@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the dblog module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function hello_world_schema() {
+  $schema['hello_world'] = array(
+    'description' => 'Table that contains information for the hello world module.',
+    'fields' => array(
+      'hid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique hello world event ID.',
+      ),
+      'uid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The {users}.uid of the user who entered the data.',
+      ),
+      'message' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+        'size' => 'big',
+        'description' => 'Text of log message to be passed into the t() function.',
+      ),
+      'timestamp' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Unix timestamp of when event occurred.',
+      ),
+    ),
+    'primary key' => array('hid'),
+  );
+
+  return $schema;
+}
+
+
