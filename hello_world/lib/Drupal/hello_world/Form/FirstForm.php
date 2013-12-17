@@ -6,8 +6,16 @@
  */
  
 namespace Drupal\hello_world\Form;
- 
+
 use Drupal\Core\Form\FormInterface;
+use Drupal\Core\Form\FormBuilder;
+use Drupal\Core\Session\AccountInterface;
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\entity\Entity\EntityDisplay;
+use Drupal\node\NodeInterface;
+use Drupal\rest\Tests\RESTTestBase;
+
  
 /**
  * Provides a simple example form.
@@ -26,17 +34,13 @@ class FirstForm implements FormInterface {
    */
   public function buildForm(array $form, array &$form_state) {
     // Use the Form API to define form elements.
-    drupal_set_title('First Form');
-    $form['user_search'] = array(
-    '#type' => 'textfield',
-    '#title' => '',
-    '#autocomplete_route_name' => 'user.autocomplete',
-    '#size' => 40,
-    '#maxlength' => 60,
+    $form['message'] = array(
+      '#title' => t('Enter your message to insert into the hello_world table'),
+      '#type' => 'textarea',
     );
     $form['submit'] = array(
       '#type' => 'submit',
-      '#value' => t('Search'),
+      '#value' => t('Submit'),
     );
     return $form;
   }
@@ -52,7 +56,9 @@ class FirstForm implements FormInterface {
    * Implements \Drupal\Core\Form\FormInterface::submitForm().
    */
   public function submitForm(array &$form, array &$form_state) {
-    // Do something useful.
+    $account = \Drupal::currentUser();
+    db_query("INSERT INTO hello_world (uid, message, timestamp) values(:uid, :message, :timestamp)", array(':uid' => $account->id(), ':message' => $form_state['values']['message'], ':timestamp' => time()));
+    drupal_set_message('Your form was submitted successfully, you typed in the body ' . $form_state['values']['message']);
+    drupal_set_message('A new row was entered into the hello_world table! ');
   }
- 
 }
