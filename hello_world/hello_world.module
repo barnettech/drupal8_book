@@ -36,6 +36,7 @@ function hello_world_permission() {
 function hello_world_theme() {
   return array(
     'hello_world_primary_page' => array(
+      'template' => 'hello_world_primary_page',
       'variables' => array(
         'items' => array(),
       ),
@@ -43,5 +44,32 @@ function hello_world_theme() {
     ),
   );
 }
+
+/**
+ * Preprocess variables for the primary hello world page.
+ *
+ * @param array $variables
+ *  An associative array containing:
+ *  - items: Array of participant names.
+ */
+function template_preprocess_hello_world_primary_page(&$variables) {
+  // Check if there are participants.
+  // If not add a default message.
+  /*if (empty($variables['items'])) {
+    $variables['items'][] = t('No participants found. Please add participants.');
+  }
+
+  $variables['add_link'] = l(t('Add'), 'bingo/add');
+  $variables['play_link'] = l(t('Play'), 'bingo/play');*/
+  if (isset($variables['items'])) {
+    $results = db_query('SELECT * from hello_world limit ' . $variables['items']);
+  }
+  else {
+    $results = db_query('SELECT * from hello_world');
+  }
+  $variables['results'] = $results;
+
+}
+
 
 
