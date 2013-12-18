@@ -29,3 +29,19 @@ function hello_world_permission() {
   );
  return $permissions;
 }
+
+/**
+ * Implements hook_theme().
+ */
+function hello_world_theme() {
+  return array(
+    'hello_world_primary_page' => array(
+      'variables' => array(
+        'items' => array(),
+      ),
+      'file' => 'hello_world.theme.inc',
+    ),
+  );
+}
+
+
