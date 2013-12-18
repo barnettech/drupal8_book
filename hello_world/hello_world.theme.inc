@@ -11,7 +11,6 @@
  *   in the database.
  */
 function theme_hello_world_primary_page($items) {
-  drupal_set_message('<pre> ' . print_r($items, TRUE) . '</pre>');
   $content = '<p><b>Here are all the messages recorded in the hello_world custom table!!!!! </b></p>';
   if (isset($items['items'])) {
     $results = db_query('SELECT * from hello_world limit ' . $items['items']);
