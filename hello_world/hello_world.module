@@ -53,14 +53,6 @@ function hello_world_theme() {
  *  - items: Array of participant names.
  */
 function template_preprocess_hello_world_primary_page(&$variables) {
-  // Check if there are participants.
-  // If not add a default message.
-  /*if (empty($variables['items'])) {
-    $variables['items'][] = t('No participants found. Please add participants.');
-  }
-
-  $variables['add_link'] = l(t('Add'), 'bingo/add');
-  $variables['play_link'] = l(t('Play'), 'bingo/play');*/
   if (isset($variables['items'])) {
     $results = db_query('SELECT * from hello_world limit ' . $variables['items']);
   }
@@ -68,6 +60,9 @@ function template_preprocess_hello_world_primary_page(&$variables) {
     $results = db_query('SELECT * from hello_world');
   }
   $variables['results'] = $results;
+  $variables['test_var'] = 'We can set as many variables in the preprocess function
+    as we like, this variable called test_var simply passes this text itself to the
+    theme template';
 
 }
 
