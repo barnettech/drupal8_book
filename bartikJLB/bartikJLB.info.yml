@@ -1,0 +1,12 @@
+name: BartikJLB
+type: theme
+description: 'A Bartik Subtheme.'
+package: Core
+version: VERSION
+core: 8.x
+base theme: bartik
+stylesheets:
+  all:
+    - css/layout.css
+    - css/style.css
+    - css/colors.css
