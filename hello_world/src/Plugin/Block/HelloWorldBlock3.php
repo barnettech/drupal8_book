@@ -28,12 +28,10 @@ class HelloWorldBlock3 extends BlockBase {
    */
   public function build() {
     $this->configuration['label'] = t('Autocomplete Form Example');
-    $theForm = drupal_get_form(new FirstForm());
+    $theForm = \Drupal::formBuilder()->getForm('Drupal\hello_world\Form\FirstForm');
     return array(
       '#children' => drupal_render($theForm),
       //'#children' => 'hello',
     );
   }
 }
-
-
