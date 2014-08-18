@@ -5,17 +5,7 @@
  * A basic Drupal 8 Hello World Module.
  */
 
-/**
- * Implements hook_menu().
- */
-function hello_world_menu() {
- 
-  $items['hello/world'] = array(
-    'title' => 'Hello World',
-    'type' => MENU_DEFAULT_LOCAL_TASK,
-    'access arguments' => array('access content'),
-  );
-}
+use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
  * Implements hook_permission().
