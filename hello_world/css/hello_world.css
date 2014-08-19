@@ -16,8 +16,7 @@
     height: 100%;
 }
 
-.block-title {
+.block-title, .title {
   font-size: large;
   color: red;
 }
-

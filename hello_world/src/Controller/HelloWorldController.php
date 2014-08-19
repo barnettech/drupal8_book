@@ -5,16 +5,18 @@
  */
  
 namespace Drupal\hello_world\Controller;
- 
-use Symfony\Component\DependencyInjection\ContainerAware;
- 
-class HelloWorldController extends ContainerAware {
- 
+
+/**
+ * Provides route responses for the hello world page example.
+ */
+class HelloWorldController {
   /**
-   * Page Callback Method to Print out Hello World Text to the Screen.
+   * Returns a simple hello world page.
+   *
+   * @return array
+   *   A very simple renderable array is returned.
    */
   public function myCallbackMethod() {
-    drupal_add_css(drupal_get_path('module', 'hello_world') . '/css/hello_world.css');
     $content = '
     <div class="myDiv">
       <div class="bg"></div>
@@ -42,6 +44,14 @@ class HelloWorldController extends ContainerAware {
         sagittis dui. Cras lorem ipsum, scelerisque tempor aliquet quis, imperdiet in augue. Curabitur tellus est, ultrices eu sagittis
         et, pellentesque id enim. Nunc lobortis mattis viverra. Sed non purus ipsum. Aenean ac justo sed urna eleifend consequat.
     </div>';
-    return $content;  
+    $element = array(
+      '#markup' => '<p><b>Saying Hello World in Drupal 8 is cool!</b></p>' . $content,
+      '#attached' => array(
+        'css' => array(
+          drupal_get_path('module', 'hello_world') . '/css/hello_world.css' => array(),
+        ),
+      ),
+    );
+    return $element;
   }
 }
