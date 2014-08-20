@@ -4,7 +4,7 @@ hello_world.hello_page:
     _content:  '\Drupal\hello_world\Controller\HelloWorldController::myCallbackMethod'
     _title: 'Hello World'
   requirements:
-    _permission: 'access content'
+    _permission: 'view hello world'
 first.form:
   path:  '/first/form'
   defaults:
