@@ -3,4 +3,4 @@ hello_world_settings:
   defaults:
     _content:  '\Drupal\hello_world\Controller\HelloWorldController::myCallbackMethod'
   requirements:
-    _permission: 'access content'
+    _permission: 'view hello world'
