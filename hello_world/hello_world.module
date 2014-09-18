@@ -6,18 +6,6 @@
  */
 
 /**
- * Implements hook_menu().
- */
-function hello_world_menu() {
- 
-  $items['hello/world'] = array(
-    'title' => 'Hello World',
-    'type' => MENU_DEFAULT_LOCAL_TASK,
-    'access arguments' => array('access content'),
-  );
-}
-
-/**
  * Implements hook_permission().
  */
 function hello_world_permission() {
@@ -40,7 +28,6 @@ function hello_world_theme() {
       'variables' => array(
         'items' => array(),
       ),
-      'file' => 'hello_world.theme.inc',
     ),
   );
 }
@@ -54,17 +41,17 @@ function hello_world_theme() {
  */
 function template_preprocess_hello_world_primary_page(&$variables) {
   if (isset($variables['items'])) {
-    $results = db_query('SELECT * from hello_world limit ' . $variables['items']);
+    $results = db_query('SELECT * from hello_world limit ' . 
+$variables['items']);
   }
   else {
     $results = db_query('SELECT * from hello_world');
   }
   $variables['results'] = $results;
-  $variables['test_var'] = 'We can set as many variables in the preprocess function
-    as we like, this variable called test_var simply passes this text itself to the
-    theme template';
+  $variables['test_var'] = 'We can set as many variables in the preprocess 
+  function as we like, this variable called test_var simply passes this text 
+  itself to the theme template';
 
 }
-
 
 
