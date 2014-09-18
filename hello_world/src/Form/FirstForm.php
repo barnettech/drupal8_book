@@ -10,50 +10,48 @@ namespace Drupal\hello_world\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
  
+/**
+ * Provides a simple example form.
+ */
 class FirstForm extends FormBase {
  
   /**
-   *  {@inheritdoc}
+   * Implements \Drupal\Core\Form\FormInterface::getFormID().
    */
-  public function getFormId() {
+  public function getFormID() {
     return 'first_form';
   }
  
   /**
-   * {@inheritdoc}
-   *
-   * @param \Symfony\Component\HttpFoundation\Request $request
-   *   The request object.
+   * Implements \Drupal\Core\Form\FormInterface::buildForm().
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     // Use the Form API to define form elements.
-    $form['user_search'] = array(
-    '#type' => 'textfield',
-    '#title' => '',
-    '#autocomplete_route_name' => 'user.autocomplete',
-    '#size' => 40,
-    '#maxlength' => 60,
+    $form['message'] = array(
+      '#title' => t('Enter your message to insert into the hello_world table'),
+      '#type' => 'textarea',
     );
     $form['submit'] = array(
       '#type' => 'submit',
-      '#value' => t('Search'),
+      '#value' => t('Submit'),
     );
     return $form;
   }
  
   /**
-   * {@inheritdoc}
+   * Implements \Drupal\Core\Form\FormInterface::validateForm().
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     // Validate the form values.
   }
  
   /**
-   * {@inheritdoc}
+   * Implements \Drupal\Core\Form\FormInterface::submitForm().
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // Do something useful.
-    drupal_set_message('thanks for submitting the form!');
+    $account = \Drupal::currentUser();
+    db_query("INSERT INTO hello_world (uid, message, timestamp) values(:uid, :message, :timestamp)", array(':uid' => $account->id(), ':message' => $form_state['values']['message'], ':timestamp' => time()));
+    drupal_set_message('Your form was submitted successfully, you typed in the body ' . $form_state['values']['message']);
+    drupal_set_message('A new row was entered into the hello_world table! ');
   }
- 
 }
