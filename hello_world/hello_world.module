@@ -25,7 +25,7 @@ function hello_world_theme() {
   return array(
     'hello_world_primary_page' => array(
       'variables' => array(
-        'items' => array(),
+        'items' => NULL,
       ),
       'file' => 'hello_world.theme.inc',
     ),
