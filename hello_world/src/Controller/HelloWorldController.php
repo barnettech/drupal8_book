@@ -5,13 +5,16 @@
  */
  
 namespace Drupal\hello_world\Controller;
- 
-use Symfony\Component\DependencyInjection\ContainerAware;
- 
-class HelloWorldController extends ContainerAware {
- 
+
+/**
+ * Provides route responses for the hello world page example.
+ */
+class HelloWorldController {
   /**
-   * Page Callback Method to Print out Hello World Text to the Screen.
+   * Returns a simple hello world page.
+   *
+   * @return array
+   *   A very simple renderable array is returned.
    */
   public function myCallbackMethod() {
     $content = '
@@ -30,6 +33,9 @@ class HelloWorldController extends ContainerAware {
   </tr>
 </table>
       ';
-    return $content;  
+    $element = array(
+      '#markup' => $content,
+    );
+    return $element;
   }
 }
