@@ -7,7 +7,7 @@
  
 namespace Drupal\hello_world\Plugin\Block;
  
-use Drupal\block\BlockBase;
+use Drupal\Core\Block\BlockBase;
 use Drupal\block\Annotation\Block;
 use Drupal\Core\Annotation\Translation;
 
@@ -46,7 +46,7 @@ class HelloWorldBlock2 extends BlockBase {
       $content .= $row->title . '</br>';
     }
     return array(
-      '#children' => $content,
+      '#markup' => $content,
     );
   }
 }

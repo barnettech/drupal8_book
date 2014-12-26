@@ -1,6 +1,7 @@
-hello_world_settings:
+hello_world.hello_page:
   path:  '/hello/world'
   defaults:
-    _content:  '\Drupal\hello_world\Controller\HelloWorldController::myCallbackMethod'
+    _controller:  '\Drupal\hello_world\Controller\HelloWorldController::myCallbackMethod'
+    _title:  'Hello World'
   requirements:
     _permission: 'access content'
