@@ -5,13 +5,16 @@
  */
  
 namespace Drupal\hello_world\Controller;
- 
-use Symfony\Component\DependencyInjection\ContainerAware;
- 
-class HelloWorldController extends ContainerAware {
- 
+
+/**
+ * Provides route responses for the hello world page example.
+ */
+class HelloWorldController {
   /**
-   * Page Callback Method to Print out Hello World Text to the Screen.
+   * Returns a simple hello world page.
+   *
+   * @return array
+   *   A very simple renderable array is returned.
    */
   public function myCallbackMethod() {
     $content = '
@@ -90,7 +93,10 @@ Kombu welsh onion melon broccoli rabe water chestnut dulse epazote salsify tomat
  Artichoke parsley ricebean desert raisin caulie grape kakadu plum collard greens leek courgette seakale mustard nori sorrel amaranth courgette peanut beetroot. Maize corn beet greens lettuce broccoli parsnip garlic chickweed groundnut garbanzo brussels sprout kombu rock melon bamboo shoot seakale endive cauliflower. Celery cucumber coriander cress desert raisin silver beet pumpkin quandong cauliflower kombu garlic squash.
    </p>
    <p><h2><a href="#top">Take me back to the top!</a></h2></p>
-      ';
-    return $content;  
+   ';
+    $element = array(
+      '#markup' => $content,
+    );
+    return $element;
   }
 }
