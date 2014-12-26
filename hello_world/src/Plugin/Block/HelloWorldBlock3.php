@@ -7,7 +7,7 @@
  
 namespace Drupal\hello_world\Plugin\Block;
  
-use Drupal\block\BlockBase;
+use Drupal\Core\Block\BlockBase;
 use Drupal\block\Annotation\Block;
 use Drupal\Core\Annotation\Translation;
 use Drupal\hello_world\Form\FirstForm;
@@ -30,8 +30,7 @@ class HelloWorldBlock3 extends BlockBase {
     $this->configuration['label'] = t('Autocomplete Form Example');
     $theForm = \Drupal::formBuilder()->getForm('Drupal\hello_world\Form\FirstForm');
     return array(
-      '#children' => drupal_render($theForm),
-      //'#children' => 'hello',
+      '#markup' => drupal_render($theForm),
     );
   }
 }
