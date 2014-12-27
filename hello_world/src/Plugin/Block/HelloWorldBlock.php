@@ -7,7 +7,7 @@
  
 namespace Drupal\hello_world\Plugin\Block;
  
-use Drupal\block\BlockBase;
+use Drupal\Core\Block\BlockBase;
 use Drupal\block\Annotation\Block;
 use Drupal\Core\Annotation\Translation;
 
@@ -28,7 +28,7 @@ class HelloWorldBlock extends BlockBase {
   public function build() {
     $this->configuration['label'] = t('Hello World Block1');
     return array(
-      '#children' => t('Hello from a custom block'),
+      '#markup' => t('Hello from a custom block'),
     );
   }
 }
