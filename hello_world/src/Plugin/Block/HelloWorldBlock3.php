@@ -7,7 +7,7 @@
  
 namespace Drupal\hello_world\Plugin\Block;
  
-use Drupal\block\BlockBase;
+use Drupal\Core\Block\BlockBase;
 use Drupal\block\Annotation\Block;
 use Drupal\Core\Annotation\Translation;
 use Drupal\hello_world\Form\FirstForm;
@@ -17,7 +17,7 @@ use Drupal\hello_world\Form\FirstForm;
  *
  * @Block(
  *   id = "hello_world_block",
- *   admin_label = @Translation("Hello World Block3"),
+ *   admin_label = @Translation("Programmatically create a node with our own form"),
  *   module = "hello_world"
  * )
  */
@@ -28,12 +28,9 @@ class HelloWorldBlock3 extends BlockBase {
    */
   public function build() {
     $this->configuration['label'] = t('Autocomplete Form Example');
-    $theForm = drupal_get_form(new FirstForm());
+    $theForm = \Drupal::formBuilder()->getForm('Drupal\hello_world\Form\FirstForm');
     return array(
-      '#children' => drupal_render($theForm),
-      //'#children' => 'hello',
+      '#markup' => drupal_render($theForm),
     );
   }
 }
-
-
