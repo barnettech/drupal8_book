@@ -2,6 +2,7 @@ hello_world_settings:
   path:  '/hello/world'
   defaults:
     _controller:  '\Drupal\hello_world\Controller\HelloWorldController::myCallbackMethod'
+    _title: 'Hello World'
   requirements:
     _permission: 'access content'
 first.form:
