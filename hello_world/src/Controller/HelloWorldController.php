@@ -16,7 +16,7 @@ class HelloWorldController extends ContainerAware {
   public function myCallbackMethod() {
     return array(
       '#theme' => 'hello_world_primary_page',
-      '#items' => 1,
+      '#items' => 100,
     );
   }
 }

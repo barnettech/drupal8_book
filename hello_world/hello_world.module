@@ -24,6 +24,7 @@ function hello_world_permission() {
 function hello_world_theme() {
   return array(
     'hello_world_primary_page' => array(
+      'function' => 'theme_hello_world_primary_page',
       'variables' => array(
         'items' => NULL,
       ),

@@ -21,8 +21,5 @@ function theme_hello_world_primary_page($items) {
   foreach($results as $row) {
     $content .= 'Row: ' . $row->hid . ', Message: ' . $row->message . ', Timestamp: ' . $row->timestamp . '</br>';
   }
-  $element = array(
-    '#markup' => $content,
-  );
-  return $element;
+  return $content;
 }
