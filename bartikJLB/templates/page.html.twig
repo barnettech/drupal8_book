@@ -33,9 +33,6 @@
  *   added to make the site slogan visually hidden, but still accessible.
  *
  * Navigation:
- * - main_menu: The Main menu links for the site, if they have been configured.
- * - secondary_menu: The Secondary menu links for the site, if they have been
- *   configured.
  * - breadcrumb: The breadcrumb trail for the current page.
  *
  * Page content (in order of occurrence in the default page.html.twig):
@@ -49,7 +46,6 @@
  *   view and edit tabs when displaying a node).
  * - action_links: Actions local to the page, such as "Add menu" on the menu
  *   administration interface.
- * - feed_icons: All feed icons for the current page.
  * - node: Fully loaded node, if there is an automatically-loaded node
  *   associated with the page and the node ID is the second argument in the
  *   page's path (e.g. node/12345 and node/12345/revisions, but not
@@ -57,6 +53,8 @@
  *
  * Regions:
  * - page.header: Items for the header region.
+ * - page.primary_menu: Items for the primary menu region.
+ * - page.secondary_menu: Items for the secondary menu region.
  * - page.featured: Items for the featured region.
  * - page.highlighted: Items for the highlighted content region.
  * - page.help: Dynamic help text, mostly for admin pages.
@@ -75,18 +73,13 @@
  * @see template_preprocess_page()
  * @see bartik_preprocess_page()
  * @see html.html.twig
- *
- * @ingroup themeable
  */
 #}
 <div id="page-wrapper"><div id="page">
 
-  <header id="header" class="{{ secondary_menu ? 'with-secondary-menu' : 'without-secondary-menu' }}" role="banner"><div class="section clearfix">
-   {% if secondary_menu %}
-      <nav id="secondary-menu" class="navigation" role="navigation">
-        {{ secondary_menu }}
-      </nav> <!-- /#secondary-menu -->
-    {% endif %}
+  <header id="header" role="banner" aria-label="{{ 'Site header'|t}}"><div class="section clearfix">
+
+    {{ page.secondary_menu }}
 
     {% if logo %}
       <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home" id="logo">
@@ -120,12 +113,8 @@
     {% endif %}
 
     {{ page.header }}
+    {{ page.primary_menu }}
 
-    {% if main_menu %}
-      <nav id ="main-menu" class="navigation" role="navigation">
-        {{ main_menu }}
-      </nav> <!-- /#main-menu -->
-    {% endif %}
   </div></header> <!-- /.section, /#header-->
 
   {% if messages %}
@@ -135,9 +124,9 @@
   {% endif %}
 
   {% if page.featured %}
-    <aside id="featured"><div class="section clearfix">
+    <div id="featured"><aside class="section clearfix" role="complementary">
       {{ page.featured }}
-    </div></aside> <!-- /.section, /#featured -->
+    </aside></div> <!-- /.section, /#featured -->
   {% endif %}
 
   <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
@@ -145,7 +134,7 @@
 
     <main id="content" class="column" role="main"><section class="section">
       {% if page.highlighted %}<div id="highlighted">{{ page.highlighted }}</div>{% endif %}
-      <a id="main-content"></a>
+      <a id="main-content" tabindex="-1"></a>
       {{ title_prefix }}
         {% if title %}
           <h1 class="title" id="page-title">
@@ -154,7 +143,7 @@
         {% endif %}
       {{ title_suffix }}
         {% if tabs %}
-          <nav class="tabs" role="navigation">
+          <nav class="tabs" role="navigation" aria-label="{{ 'Tabs'|t }}">
             {{ tabs }}
           </nav>
         {% endif %}
@@ -165,17 +154,16 @@
           </ul>
         {% endif %}
       {{ page.content }}
-      {{ feed_icons }}
     </section></main> <!-- /.section, /#content -->
 
     {% if page.sidebar_first %}
-      <div id="sidebar-first" class="column sidebar"><aside class="section">
+      <div id="sidebar-first" class="column sidebar"><aside class="section" role="complementary">
         {{ page.sidebar_first }}
       </aside></div><!-- /.section, /#sidebar-first -->
     {% endif %}
 
     {% if page.sidebar_second %}
-      <div id="sidebar-second" class="column sidebar"><aside class="section">
+      <div id="sidebar-second" class="column sidebar"><aside class="section" role="complementary">
         {{ page.sidebar_second }}
       </aside></div><!-- /.section, /#sidebar-second -->
     {% endif %}
@@ -183,7 +171,7 @@
   </div></div><!-- /#main, /#main-wrapper -->
 
   {% if page.triptych_first or page.triptych_middle or page.triptych_last %}
-    <div id="triptych-wrapper"><aside id="triptych" class="clearfix">
+    <div id="triptych-wrapper"><aside id="triptych" class="clearfix" role="complementary">
       {{ page.triptych_first }}
       {{ page.triptych_middle }}
       {{ page.triptych_last }}

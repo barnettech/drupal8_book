@@ -8,25 +8,21 @@ body {
 }
 #page,
 #main-wrapper,
-#main-menu-links li a.active,
-#main-menu-links li.active-trail a {
-/*  background: #ffffff;*/
+.region-primary-menu .menu li a.active,
+.region-primary-menu .menu li .active-trail a {
+  background: #ffffff;
 }
 .tabs ul.primary li a.active {
   background-color: #ffffff;
 }
 .tabs ul.primary li.active a {
   background-color: #ffffff;
-  border-bottom: 1px solid #ffffff;
+  border-bottom-color: #ffffff;
 }
 #header {
-  background-color: #48a9e4;
-  background-image: -moz-linear-gradient(top, #0779bf 0%, #48a9e4 100%);
-  background-image: -ms-linear-gradient(top, #0779bf 0%, #48a9e4 100%);
-  background-image: -o-linear-gradient(top, #0779bf 0%, #48a9e4 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0779bf), color-stop(1, #48a9e4));
-  background-image: -webkit-linear-gradient(top, #0779bf 0%, #48a9e4 100%);
-  background-image: linear-gradient(top, #0779bf 0%, #48a9e4 100%);
+  #background-image:url('../images/sky-top-banner.jpg');
+  background-image:url('../images/nature_wallpaper-normal.jpg');
+  background-repeat: repeat-x;
 }
 a,
 .link {
@@ -54,7 +50,24 @@ a:active,
 .region-header a,
 .region-header li a.active,
 #name-and-slogan,
+.site-branding-block,
 #name-and-slogan a,
-#secondary-menu-links li a {
+.site-branding-block a,
+.region-secondary-menu .menu li a {
   color: #fffeff;
 }
+
+/* ---------- Color Form ----------- */
+
+[dir="rtl"] .color-form #palette {
+  margin-left: 0;
+  margin-right: 20px;
+}
+[dir="rtl"] .color-form .form-item label {
+  float: right;
+}
+[dir="rtl"] .color-form #palette .lock {
+  right: -20px;
+  left: 0;
+}
+

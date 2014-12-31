@@ -1,6 +1,22 @@
 /* ---------- Overall Specifications ---------- */
-#main-wrapper {
-  background-image:url('../images/css-background-image-sky.jpg');
+#page-wrapper #main-wrapper {
+  background-image:url('../images/nature_wallpaper-normal-greyscale.jpg');
+  background-repeat: repeat-x;
+  #background: url("images/nature_wallpaper-normal-greyscale.jpg") repeat scroll 0 0 transparent;
+  height: 100%;
+  left: 0;
+  #position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  min-height: 500px;
+}
+
+#content, #contextual-region, .region-sidebar-first .block {
+  background: rgba(248, 248, 248, 0.9);
+  border-radius: 15px;
+  margin-top: 2%;
+  #padding: 15px;
 }
 
 body {

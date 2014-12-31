@@ -10,7 +10,7 @@ body,
   min-height: 100%;
 }
 #header div.section,
-#featured div.section,
+#featured aside.section,
 #messages div.section,
 #main,
 #triptych,
@@ -27,15 +27,13 @@ body,
 .region-header {
   float: right; /* LTR */
   margin: .5em 5px .75em;
-  border: 1px solid #ccc;
 }
 [dir="rtl"] .region-header {
   float: left;
 }
-#secondary-menu {
+.region-secondary-menu .block-menu {
   width: 100%;
   margin: 0 auto;
-  overflow: hidden;
 }
 #main-wrapper {
   min-height: 300px;
@@ -51,16 +49,12 @@ body,
   padding: 35px 0 30px;
 }
 #footer-wrapper .section {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0 15px;
 }
 .region-triptych-first,
 .region-triptych-middle,
 .region-triptych-last {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0 20px 0;
 }
@@ -68,8 +62,6 @@ body,
 .region-footer-secondcolumn,
 .region-footer-thirdcolumn,
 .region-footer-fourthcolumn {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0 10px;
 }
@@ -108,21 +100,19 @@ body,
   [dir="rtl"] #sidebar-second {
     margin-right: 50%;
   }
-  .one-sidebar #sidebar-first,
-  .one-sidebar #sidebar-second {
+  .layout-one-sidebar #sidebar-first,
+  .layout-one-sidebar #sidebar-second {
     width: 100%;
   }
-  .one-sidebar #sidebar-second {
+  .layout-one-sidebar #sidebar-second {
     margin-left: 0; /* LTR */
   }
-  [dir="rtl"] .one-sidebar #sidebar-second {
+  [dir="rtl"] .layout-one-sidebar #sidebar-second {
     margin-right: 0;
   }
   .region-triptych-first,
   .region-triptych-middle,
   .region-triptych-last {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 20px 15px 30px;
     width: 33%;
@@ -132,16 +122,12 @@ body,
   }
   .region-footer-firstcolumn,
   .region-footer-secondcolumn {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 10px;
     width: 50%;
   }
   .region-footer-thirdcolumn,
   .region-footer-fourthcolumn {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 10px;
     width: 50%;
@@ -154,7 +140,7 @@ body,
 @media all and (min-width: 851px) {
 
   #header div.section,
-  #featured div.section,
+  #featured aside.section,
   #messages div.section,
   #main,
   #triptych,
@@ -188,30 +174,30 @@ body,
   [dir="rtl"] .region-footer-fourthcolumn {
     float: right;
   }
-  .two-sidebars #content {
+  .layout-two-sidebars #content {
     margin-left: 25%;
     margin-right: 25%;
     width: 50%;
   }
-  .one-sidebar #content {
+  .layout-one-sidebar #content {
     width: 75%;
   }
-  .no-sidebars #content {
+  .layout-no-sidebars #content {
     width: 100%;
   }
-  .sidebar-first #content {
+  .layout-sidebar-first #content {
     margin-left: 25%; /* LTR */
     margin-right: 0; /* LTR */
   }
-  [dir="rtl"] .sidebar-first #content {
+  [dir="rtl"] .layout-sidebar-first #content {
     margin-left: 0;
     margin-right: 25%;
   }
-  .sidebar-second #content {
+  .layout-sidebar-second #content {
     margin-right: 25%; /* LTR */
     margin-left: 0; /* LTR */
   }
-  [dir="rtl"] .sidebar-second #content {
+  [dir="rtl"] .layout-sidebar-second #content {
     margin-right: 0;
     margin-left: 25%;
   }
@@ -239,10 +225,15 @@ body,
   .region-footer-secondcolumn,
   .region-footer-thirdcolumn,
   .region-footer-fourthcolumn {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 10px;
     width: 25%;
   }
 }
+/* ------------------- Main ------------------- */
+
+#main {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
