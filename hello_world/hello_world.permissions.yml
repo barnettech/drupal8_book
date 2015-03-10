@@ -1,0 +1,4 @@
+view hello world:
+  title: 'View hello world'
+  description: 'Allow access to view the hello world page.'
+  restrict access: TRUE
