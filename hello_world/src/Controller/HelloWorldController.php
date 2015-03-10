@@ -47,11 +47,8 @@ class HelloWorldController {
     $element = array(
       '#markup' => '<p><b>Saying Hello World in Drupal 8 is cool!</b></p>' . $content,
       '#attached' => array(
-        'css' => array(
-          drupal_get_path('module', 'hello_world') . '/css/hello_world.css' => array(),
-        ),
-        'js' => array(
-          drupal_get_path('module', 'hello_world') . '/js/hello_world.js' => array(),
+        'library' => array(
+          'hello_world/hello-world',
         ),
       ),
     );

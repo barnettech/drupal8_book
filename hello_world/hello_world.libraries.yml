@@ -1,0 +1,7 @@
+hello-world:
+  version: 1.x
+  css:
+    theme:
+      css/hello_world.css: {}
+  js:
+    js/hello_world.js: {}
