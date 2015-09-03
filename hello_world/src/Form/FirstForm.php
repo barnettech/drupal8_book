@@ -30,7 +30,6 @@ class FirstForm extends FormBase {
     $form['user_search'] = array(
     '#type' => 'textfield',
     '#title' => '',
-    '#autocomplete_route_name' => 'user.autocomplete',
     '#size' => 40,
     '#maxlength' => 60,
     );
@@ -40,7 +39,7 @@ class FirstForm extends FormBase {
     );
     return $form;
   }
- 
+
   /**
    * {@inheritdoc}
    */
