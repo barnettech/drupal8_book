@@ -40,7 +40,6 @@ class FirstForm extends FormBase {
     '#type' => 'textfield',
     '#title' => t('Author'),
     '#description' => t('Choose who the node should appear written by'),
-    '#autocomplete_route_name' => 'user.autocomplete',
     '#size' => 40,
     '#maxlength' => 60,
     );
