@@ -45,15 +45,12 @@ class HelloWorldController {
         et, pellentesque id enim. Nunc lobortis mattis viverra. Sed non purus ipsum. Aenean ac justo sed urna eleifend consequat.
     </div>';
     $element = array(
-      '#markup' => '<p><b>Saying Hello World in Drupal 8 is cool!</b></p>' . $content,
-      '#attached' => array(
-        'css' => array(
-          drupal_get_path('module', 'hello_world') . '/css/hello_world.css' => array(),
+        '#markup' => 'Saying Hello World in Drupal 8 is cool!' . $content,
+        '#attached' => array(
+            'library' => array(
+                'hello_world/hello-world',
+            ),
         ),
-        'js' => array(
-          drupal_get_path('module', 'hello_world') . '/js/hello_world.js' => array(),
-        ),
-      ),
     );
     return $element;
   }
