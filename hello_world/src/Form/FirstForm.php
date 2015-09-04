@@ -50,8 +50,8 @@ class FirstForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $account = \Drupal::currentUser();
-    db_query("INSERT INTO hello_world (uid, message, timestamp) values(:uid, :message, :timestamp)", array(':uid' => $account->id(), ':message' => $form_state['values']['message'], ':timestamp' => time()));
-    drupal_set_message('Your form was submitted successfully, you typed in the body ' . $form_state['values']['message']);
+    db_query("INSERT INTO hello_world (uid, message, timestamp) values(:uid, :message, :timestamp)", array(':uid' => $account->id(), ':message' => $form_state->getValue('message'), ':timestamp' => time()));
+    drupal_set_message('Your form was submitted successfully, you typed in the body ' . $form_state->getValue('message'));
     drupal_set_message('A new row was entered into the hello_world table! ');
   }
 }
