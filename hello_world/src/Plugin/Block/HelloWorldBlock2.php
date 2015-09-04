@@ -4,10 +4,10 @@
  * @file
  * Contains \Drupal\hello_world\Plugin\Block\HelloWorldBlock2
  */
- 
+
 namespace Drupal\hello_world\Plugin\Block;
- 
-use Drupal\block\BlockBase;
+
+use Drupal\Core\Block\BlockBase;
 use Drupal\block\Annotation\Block;
 use Drupal\Core\Annotation\Translation;
 
