@@ -7,7 +7,7 @@
  
 namespace Drupal\hello_world\Plugin\Block;
  
-use Drupal\block\BlockBase;
+use Drupal\Core\block\BlockBase;
 use Drupal\block\Annotation\Block;
 use Drupal\Core\Annotation\Translation;
 use Drupal\hello_world\Form\FirstForm;
