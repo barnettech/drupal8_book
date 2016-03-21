@@ -5,3 +5,5 @@ hello-world:
       css/hello_world.css: {}
   js:
     js/hello_world.js: {}
+  dependencies:
+    - core/jquery.ui.draggable
