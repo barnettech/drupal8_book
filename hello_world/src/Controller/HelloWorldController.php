@@ -43,12 +43,13 @@ class HelloWorldController {
         Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus sed neque ante, venenatis
         sagittis dui. Cras lorem ipsum, scelerisque tempor aliquet quis, imperdiet in augue. Curabitur tellus est, ultrices eu sagittis
         et, pellentesque id enim. Nunc lobortis mattis viverra. Sed non purus ipsum. Aenean ac justo sed urna eleifend consequat.
-    </div>';
+    </div><div id="myreactapp" />';
     $element = array(
         '#markup' => 'Saying Hello World in Drupal 8 is cool!' . $content,
         '#attached' => array(
             'library' => array(
                 'hello_world/hello-world',
+                'hello_world/react',s
             ),
         ),
     );
